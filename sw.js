@@ -34,13 +34,29 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
 
-    console.log('SW', event.request.url);
+    // console.log('SW', event.request.url);
 
-    if (event.request.url.includes('https://reqres.in/')) {
+    // if (event.request.url.includes('https://reqres.in/')) {
 
-        const resp = new Response(`{ok: false, mensaje: 'jaksdkasd}`);
-        event.respondWith(resp);
+    //     const resp = new Response(`{ok: false, mensaje: 'jaksdkasd}`);
+    //     event.respondWith(resp);
 
-    }
+    // }
+
+});
+
+// sync util cuando perdemos conexion y la recuperamos
+self.addEventListener('sync', event => {
+
+    console.log('recuperamos conexion!!');
+    console.log(event);
+    console.log(event.tag);
+
+});
+
+// push manejar las push notifications
+self.addEventListener('push', evet => {
+
+    console.log('notificacion recibida.');
 
 });
